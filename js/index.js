@@ -50,9 +50,24 @@ inquirer.prompt([
         message: "What is your email?",
     },
 ]).then((answers) => {
+    let licenseBadgeURL = "";
+    switch (answers.license) {
+        case "MIT":
+            licenseBadgeURL = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
+            break;
+        case "Apache":
+            licenseBadgeURL = "[![License: Apache](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
+            break;
+        case "GPL":
+            licenseBadgeURL = "[![License: GPL](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)";
+            break;
+        default:
+            break;
+    }
+
     const readMeTemplate = 
-`
-# ${answers.title}
+`# ${answers.title}
+${licenseBadgeURL}
 
 ## Description
 ${answers.description}
