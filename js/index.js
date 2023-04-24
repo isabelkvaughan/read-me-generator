@@ -1,52 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
-const readMeTemplate = ({ 
-    title, 
-    description, 
-    installation, 
-    usage, 
-    contribution, 
-    tests, 
-    license, 
-    username, 
-    email
-}) => {
-    `
-    # ${answers.title}
-
-    ## Description
-    ${answers.description}
-
-    ## Table of Contents
-    * [Installation](#installation)
-    * [Usage](#usage)
-    * [License](#license)
-    * [Contributing](#contributing)
-    * [Tests](#tests)
-    * [Questions](#questions)
-
-    ## Installation
-    ${answers.installation}
-    
-    ## Usage
-    ${answers.usage}
-
-    ## License
-    This project is ${answers.license} licensed.
-
-    ## Contributing
-    ${answers.contribution}
-
-    ## Tests
-    ${answers.tests}
-
-    ## Questions
-    GitHub profile: [github.com/${answers.username}](https://github.com/${answers.username})
-    Email: [mailto:${answers.email}](${answers.email})
-    `;
-};
-
 inquirer.prompt([
     {
         type: "input",
@@ -96,7 +50,43 @@ inquirer.prompt([
         message: "What is your email?",
     },
 ]).then((answers) => {
-    fs.writeFile('README.md', readMeTemplate(answers), (error) => {
-      error ? console.log(error) : console.log("README file generated.");
+    const readMeTemplate = 
+`
+# ${answers.title}
+
+## Description
+${answers.description}
+
+## Table of Contents
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
+    
+## Installation
+${answers.installation}
+        
+## Usage
+${answers.usage}
+    
+## License
+This project is ${answers.license} licensed.
+    
+## Contributing
+${answers.contribution}
+    
+## Tests
+${answers.tests}
+    
+## Questions
+
+If you have any questions, please contact:\n
+GitHub profile: [github.com/${answers.username}](${answers.username})\n
+Email: [mailto:${answers.email}](${answers.email})
+`;
+        fs.writeFile('README.md', readMeTemplate, (error) => {
+            error ? console.log(error) : console.log("README file generated.");
+        });
     });
-  });
