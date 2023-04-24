@@ -99,7 +99,7 @@ ${answers.tests}
 
 If you have any questions, please contact:\n
 GitHub profile: [github.com/${answers.username}](${answers.username})\n
-Email: [${answers.answersemail}](mailto:${answers.email})
+Email: [${answers.email}](mailto:${answers.email})
 `;
         fs.writeFile('README.md', readMeTemplate, (error) => {
             error ? console.log(error) : console.log("README file generated.");

@@ -37,9 +37,9 @@ GitHub Repository: [github.com/isabelkvaughan/read-me-generator](https://github.
 
 1) Run the application using `node index.js`
 2) Follow the prompts and enter all required information for your README file.
-3) Once you have entered the required information, a README file will be generated. 
+3) Once you have entered the required information, a README file will be generated.
 
-[Example README file](/Users/isabelkvaughan/Bootcamp/week-9/read-me-generator/js/README.md)
+[Example README file](./EXAMPLE_README.md)
 [Video on how to use](https://drive.google.com/file/d/1xihTvNHgyOIf_oZGmeonBZ6gwF0ELo_5/view?usp=share_link)
 
 ## Contact
